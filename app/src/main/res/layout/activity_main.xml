@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText,PxUsage">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="每条线之间的距离为100px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+
+
+        <com.zhongjh.viewxyexample.MyFrameLayout
+            android:id="@+id/layoutExample"
+            android:layout_width="400px"
+            android:layout_height="100px"
+            android:layout_marginStart="200px"
+            android:layout_marginTop="300px"
+            android:background="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="PxUsage">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="宽度400px,高度100px"
+                tools:ignore="HardcodedText" />
+
+        </com.zhongjh.viewxyexample.MyFrameLayout>
+
+
+        <Button
+            android:id="@+id/btnGetX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="getX"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnGetY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="getY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnGetX"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnGetWidth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="getWidth"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnGetY"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnGetHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="getHeight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnGetWidth"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnGetLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="getLeft"
+            app:layout_constraintBottom_toTopOf="@+id/btnGetX"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnGetRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="getRight"
+            app:layout_constraintBottom_toTopOf="@+id/btnGetX"
+            app:layout_constraintStart_toEndOf="@+id/btnGetLeft"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnGetTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="getTop"
+            app:layout_constraintBottom_toTopOf="@+id/btnGetX"
+            app:layout_constraintStart_toEndOf="@+id/btnGetRight"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnGetBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="getBottom"
+            app:layout_constraintBottom_toTopOf="@+id/btnGetX"
+            app:layout_constraintStart_toEndOf="@+id/btnGetTop"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="LocationInWindow和LocationOnScreen区别"
+            app:layout_constraintBottom_toTopOf="@+id/btnGetLeft"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/getGlobalVisibleRect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="getGlobalVisibleRect"
+            app:layout_constraintBottom_toTopOf="@+id/btnDialog"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tv100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            app:layout_constraintEnd_toEndOf="@+id/viewV100"
+            app:layout_constraintStart_toStartOf="@+id/viewV100"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewV100"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="40dp"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv100" />
+
+        <TextView
+            android:id="@+id/tv200"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200"
+            app:layout_constraintEnd_toEndOf="@+id/viewV200"
+            app:layout_constraintStart_toStartOf="@+id/viewV200"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewV200"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="200px"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv200"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tv300"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="300"
+            app:layout_constraintEnd_toEndOf="@+id/viewV300"
+            app:layout_constraintStart_toStartOf="@+id/viewV300"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewV300"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="300px"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv300"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tv400"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="400"
+            app:layout_constraintEnd_toEndOf="@+id/viewV400"
+            app:layout_constraintStart_toStartOf="@+id/viewV400"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewV400"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="400px"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv400"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tv500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500"
+            app:layout_constraintEnd_toEndOf="@+id/viewV500"
+            app:layout_constraintStart_toStartOf="@+id/viewV500"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewV500"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="500px"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv500"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tv600"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="600"
+            app:layout_constraintEnd_toEndOf="@+id/viewV600"
+            app:layout_constraintStart_toStartOf="@+id/viewV600"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewV600"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="600px"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv600"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tv700"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="700"
+            app:layout_constraintEnd_toEndOf="@+id/viewV700"
+            app:layout_constraintStart_toStartOf="@+id/viewV700"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewV700"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="700px"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv700"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tv800"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="800"
+            app:layout_constraintEnd_toEndOf="@+id/viewV800"
+            app:layout_constraintStart_toStartOf="@+id/viewV800"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewV800"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="800px"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv800"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tv900"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="900"
+            app:layout_constraintEnd_toEndOf="@+id/viewV900"
+            app:layout_constraintStart_toStartOf="@+id/viewV900"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewV900"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="900px"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv900"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tv1000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1000"
+            app:layout_constraintEnd_toEndOf="@+id/viewV1000"
+            app:layout_constraintStart_toStartOf="@+id/viewV1000"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewV1000"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="1000px"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv1000"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvH100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            app:layout_constraintBottom_toBottomOf="@+id/viewH100"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewH100"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewH100"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="100px"
+            android:background="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/tvH100"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvH200"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200"
+            app:layout_constraintBottom_toBottomOf="@+id/viewH200"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewH200"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewH200"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="200px"
+            android:background="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/tvH200"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvH300"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="300"
+            app:layout_constraintBottom_toBottomOf="@+id/viewH300"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewH300"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewH300"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="300px"
+            android:background="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/tvH300"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvH400"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="400"
+            app:layout_constraintBottom_toBottomOf="@+id/viewH400"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewH400"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewH400"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="400px"
+            android:background="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/tvH400"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvH500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500"
+            app:layout_constraintBottom_toBottomOf="@+id/viewH500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewH500"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewH500"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="500px"
+            android:background="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/tvH500"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvH600"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="600"
+            app:layout_constraintBottom_toBottomOf="@+id/viewH600"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewH600"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewH600"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="600px"
+            android:background="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/tvH600"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvH700"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="700"
+            app:layout_constraintBottom_toBottomOf="@+id/viewH700"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewH700"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewH700"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="700px"
+            android:background="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/tvH700"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvH800"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="800"
+            app:layout_constraintBottom_toBottomOf="@+id/viewH800"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewH800"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewH800"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="800px"
+            android:background="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/tvH800"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvH900"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="900"
+            app:layout_constraintBottom_toBottomOf="@+id/viewH900"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewH900"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/viewH900"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="900px"
+            android:background="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/tvH900"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="PxUsage" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.zhongjh.viewxyexample.MyFrameLayout
+        android:id="@+id/layoutExample2"
+        android:layout_width="400px"
+        android:layout_height="100px"
+        android:layout_marginTop="400px"
+        android:background="@color/teal_200"
+        android:layout_marginStart="-300px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="宽度400px,高度100px"
+            tools:ignore="HardcodedText" />
+
+    </com.zhongjh.viewxyexample.MyFrameLayout>
+
+</RelativeLayout>
