@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10px"
     tools:context=".MainActivity"
     tools:ignore="HardcodedText,PxUsage">
 
@@ -22,7 +23,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="HardcodedText" />
-
 
 
         <com.zhongjh.viewxyexample.MyFrameLayout
@@ -144,6 +144,38 @@
             app:layout_constraintBottom_toTopOf="@+id/btnDialog"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/getLocalVisibleRect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="getLocalVisibleRect"
+            app:layout_constraintBottom_toTopOf="@+id/btnDialog"
+            app:layout_constraintStart_toEndOf="@+id/getGlobalVisibleRect"
+            tools:ignore="HardcodedText" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/getGlobalVisibleRect"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <RadioButton
+                android:id="@+id/rbtnGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="选择灰色View" />
+
+            <RadioButton
+                android:id="@+id/rbtnBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择蓝色View" />
+
+        </RadioGroup>
 
         <TextView
             android:id="@+id/tv100"
@@ -541,9 +573,9 @@
         android:id="@+id/layoutExample2"
         android:layout_width="400px"
         android:layout_height="100px"
+        android:layout_marginStart="-300px"
         android:layout_marginTop="400px"
-        android:background="@color/teal_200"
-        android:layout_marginStart="-300px">
+        android:background="@color/teal_200">
 
         <TextView
             android:layout_width="wrap_content"

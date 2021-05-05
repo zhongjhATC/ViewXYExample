@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import static android.view.MotionEvent.ACTION_DOWN;
@@ -15,12 +17,27 @@ import static android.view.MotionEvent.ACTION_DOWN;
 public class MainActivity extends AppCompatActivity {
 
     MyFrameLayout layoutExample;
+    RadioButton rbtnGray;
+    RadioButton rbtnBlue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        layoutExample = findViewById(R.id.layoutExample2);
+        layoutExample = findViewById(R.id.layoutExample);
+        rbtnGray = findViewById(R.id.rbtnGray);
+        rbtnBlue = findViewById(R.id.rbtnBlue);
+        rbtnGray.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                layoutExample = findViewById(R.id.layoutExample);
+            }
+        });
+        rbtnBlue.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                layoutExample = findViewById(R.id.layoutExample2);
+            }
+        });
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -56,7 +73,16 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,  "left:" + globalRect.left + " right:" + globalRect.right + " top:" + globalRect.top + " bottom:" + globalRect.bottom,
                         Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.getLocalVisibleRect:
+                Rect localRect  = new Rect();
+                layoutExample.getLocalVisibleRect(localRect);
+                Toast.makeText(this,  "left:" + localRect.left + " right:" + localRect.right + " top:" + localRect.top + " bottom:" + localRect.bottom,
+                        Toast.LENGTH_SHORT).show();
+                break;
             case R.id.btnDialog:
+//                int[] location = new int[2];
+//                layoutExample.getLocationInWindow(location);
+//                Toast.makeText(getApplicationContext(), "X:" + location[0] + " Y:" + location[1], Toast.LENGTH_SHORT).show();
                 MyDialog.Builder builder = new MyDialog.Builder(MainActivity.this);
                 builder.create().show();
                 break;
